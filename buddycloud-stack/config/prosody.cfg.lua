@@ -27,6 +27,13 @@ VirtualHost "buddycloud.dev"
   ssl                   = { certificate = "/etc/certs/buddycloud.dev.cert.pem";
                                     key = "/etc/certs/buddycloud.dev.key.pem" }
 
+VirtualHost "buddycloud2.dev"
+  authentication        = "internal_hashed"
+  allow_registration    = true 
+  anonymous_login       = false
+  ssl                   = { certificate = "/etc/certs/buddycloud2.dev.cert.pem";
+                                    key = "/etc/certs/buddycloud2.dev.key.pem" }
+
 -- for non-logged in browsing of open channels.
 VirtualHost "anon.buddycloud.dev"
   authentication        = "anonymous"
@@ -36,15 +43,24 @@ VirtualHost "anon.buddycloud.dev"
 -- Buddycloud Channel Server XMPP component configuration.
 Component "buddycloud.buddycloud.dev"
   component_secret      = "tellnoone"
+Component "buddycloud.buddycloud2.dev"
+  component_secret      = "tellnoone"
 
 -- Buddycloud Channel Server (optional topic channels).
 Component "topics.buddycloud.dev"
+  component_secret      = "tellnoone"
+Component "topics.buddycloud2.dev"
   component_secret      = "tellnoone"
 
 -- Buddycloud Media Server XMPP component configuration.
 Component "media.buddycloud.dev"
   component_secret      = "tellnoone"
 
+Component "media.buddycloud2.dev"
+  component_secret      = "tellnoone"
+
 -- Buddycloud Pusher Server XMPP component configuration.
 Component "pusher.buddycloud.dev"
+  component_secret      = "tellnoone"
+Component "pusher.buddycloud2.dev"
   component_secret      = "tellnoone"
